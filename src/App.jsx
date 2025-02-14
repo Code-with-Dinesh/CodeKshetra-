@@ -8,9 +8,12 @@ import Signup from './components/Signup'
 import Login from './components/Login'
 import RecuratorDashboard from './components/RecutorDashboard'
 import UserDashboard from './components/UserDashboard'
+import {store} from './redux/store'
+import { Provider } from 'react-redux'
 const App = () => {
   return (
     <div>
+      <Provider store={store}>
     <Navbar />
     <Routes>
     <Route path="/" element={<><Home /><MainDashboard /></>} />
@@ -19,6 +22,7 @@ const App = () => {
       <Route path="/recurator-dashboard" element={<RecuratorDashboard />} />
       <Route path="/user-dashboard" element={<UserDashboard />} />
     </Routes>
+    </Provider>
   </div>
   )
 }

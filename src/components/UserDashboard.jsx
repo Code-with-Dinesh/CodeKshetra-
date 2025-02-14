@@ -1,8 +1,8 @@
 import React from 'react';
-// import { useSelector } from 'react-redux';
+ import { useSelector } from 'react-redux';
 
 const UserDashboard = () => {
-//   const { user } = useSelector((state) => state.auth);
+  const { user } = useSelector((state) => state.auth);
   
   return (
     <div className="min-h-screen bg-gradient-to-r from-gray-900 via-gray-800 to-black text-white p-8">
