@@ -10,21 +10,26 @@ import RecuratorDashboard from './components/RecutorDashboard'
 import UserDashboard from './components/UserDashboard'
 import {store} from './redux/store'
 import { Provider } from 'react-redux'
+import Footer from './components/Footer'
 const App = () => {
   return (
-    <div>
+    <div className="min-h-screen flex flex-col">
       <Provider store={store}>
-    <Navbar />
-    <Routes>
-    <Route path="/" element={<><Home /><MainDashboard /></>} />
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/recurator-dashboard" element={<RecuratorDashboard />} />
-      <Route path="/user-dashboard" element={<UserDashboard />} />
-    </Routes>
-    </Provider>
-  </div>
-  )
-}
+        <Navbar />
+        <div className="flex-grow">
+          <Routes>
+            <Route path="/" element={<><Home /><MainDashboard /></>} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/recurator-dashboard" element={<RecuratorDashboard />} />
+            <Route path="/user-dashboard" element={<UserDashboard />} />
+          </Routes>
+        </div>
+        <Footer />
+      </Provider>
+    </div>
+  );
+};
+
 
 export default App
