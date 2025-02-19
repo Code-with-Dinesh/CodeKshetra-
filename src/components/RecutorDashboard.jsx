@@ -45,10 +45,10 @@ const RecuratorDashboard = () => {
   };
 
   return (
-    <div className="mx-auto p-10 bg-gradient-to-br bg-black text-white shadow-xl grid grid-cols-1 md:grid-cols-2 gap-10">
+    <div className="mx-auto p-10  bg-black text-white shadow-xl grid grid-cols-1 md:grid-cols-2 gap-10">
       {/* Left Section */}
       <div>
-        <h1 className="text-4xl font-extrabold text-center text-purple-400 mb-8 drop-shadow-lg">
+        <h1 className="text-4xl font-extrabold text-center text-purple-300 mb-8 drop-shadow-lg">
           Recruiter Dashboard
         </h1>
 
@@ -59,11 +59,11 @@ const RecuratorDashboard = () => {
             {jobs.map((job) => (
               <li
                 key={job.id} // Add a key here for better rendering
-                className="p-5 bg-gray-800/90 backdrop-blur-lg border border-gray-700 rounded-xl shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:scale-105"
+                className="p-5 bg-gradient-to-bl from-black to-gray-900 backdrop-blur-lg border border-gray-700 rounded-xl shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:scale-105"
               >
-                <h3 className="text-xl font-semibold text-purple-400">{job.title}</h3>
-                <p className="text-gray-400">{job.description}</p>
-                <p className="text-gray-500">{job.location}</p>
+                <h3 className="text-2xl font-semibold text-zinc-400">Role : {job.title}</h3>
+                <p className="text-gray-400">Description : {job.description}</p>
+                <p className="text-gray-500">Location {job.location}</p>
                 <p className="text-gray-300">Salary: {job.salary}</p>
                 <button
                   onClick={() => handleDeleteJob(job.id)}
@@ -87,7 +87,7 @@ const RecuratorDashboard = () => {
                 required
                 value={jobTitle}
                 onChange={(e) => setJobTitle(e.target.value)}  // Bind the state to the input
-                className="w-full p-4 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-400 text-white shadow-md"
+                className="w-full p-4 bg-gradient-to-bl from-black to-gray-900 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-400 text-white shadow-md"
               />
             </div>
             <div>
@@ -96,7 +96,7 @@ const RecuratorDashboard = () => {
                 required
                 value={jobDescription}
                 onChange={(e) => setJobDescription(e.target.value)}  // Bind the state to the input
-                className="w-full p-4 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-400 text-white shadow-md"
+                className="w-full p-4 bg-gradient-to-bl from-black to-gray-900 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-400 text-white shadow-md"
               />
             </div>
             <div>
@@ -106,7 +106,7 @@ const RecuratorDashboard = () => {
                 required
                 value={jobLocation}
                 onChange={(e) => setJobLocation(e.target.value)}  // Bind the state to the input
-                className="w-full p-4 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-400 text-white shadow-md"
+                className="w-full p-4 bg-gradient-to-bl from-black to-gray-900 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-400 text-white shadow-md"
               />
             </div>
             <div>
@@ -116,10 +116,10 @@ const RecuratorDashboard = () => {
                 required
                 value={jobSalary}
                 onChange={(e) => setJobSalary(e.target.value)}  // Bind the state to the input
-                className="w-full p-4 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-400 text-white shadow-md"
+                className="w-full p-4 bg-gradient-to-bl from-black to-gray-900 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-400 text-white shadow-md"
               />
             </div>
-            <button className="w-full cursor-pointer py-3 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 focus:ring-2 focus:ring-purple-400 transition duration-200 shadow-lg">
+            <button className="w-full cursor-pointer py-3 bg-blue-500 text-white font-semibold rounded-lg  focus:ring-2 focus:ring-purple-400 transition duration-200 shadow-lg">
               Add Job
             </button>
           </form>
@@ -127,7 +127,7 @@ const RecuratorDashboard = () => {
       </div>
 
       {/* Right Section - Recruiter Info */}
-      <div className="bg-gray-800/90 backdrop-blur-lg p-6 rounded-xl shadow-lg border border-gray-700">
+      <div className="bg-gradient-to-bl from-black to-gray-900 backdrop-blur-lg p-6 rounded-xl shadow-lg border border-gray-700">
         <h2 className="text-2xl font-semibold text-gray-300 mb-4">Recruiter Info</h2>
         <p className="text-gray-400 mb-4">
           Welcome to the Recruiter Dashboard! Here you can manage job listings and add new job positions for your company.

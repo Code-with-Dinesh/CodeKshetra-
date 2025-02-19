@@ -42,7 +42,7 @@ const Cardcontainer = () => {
   ];
 
   return (
-    <div className="bg-black w-full p-4 flex flex-wrap gap-5">
+    <div className="bg-black  w-full  flex flex-wrap gap-5 py-4 min-h-[70vh]  ">
       {mytitle.map((item, index) => (
         <Card key={index} icon={item.icon} title={item} />
       ))}

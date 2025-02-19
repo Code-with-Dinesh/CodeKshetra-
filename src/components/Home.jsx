@@ -2,12 +2,11 @@ import React from "react";
 import { GlobeDemo } from "../components/GlobeDemo";
 import { Link } from "react-router-dom";
 import Cardcontainer from "./Cardcontainer";
-import Footer from '../components/Footer'
 const Home = () => {
   return (
     <>
     <div className="flex  flex-col md:flex-row items-center justify-between min-h-screen bg-black text-white px-6 md:px-16 lg:px-24 py-10  overflow-x-hidden">
-      {/* Left Side */}
+     
       <div className="md:w-1/2 text-center md:text-left space-y-6">
         <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
           Find Your Dream Job
@@ -31,14 +30,12 @@ const Home = () => {
           </Link>
         </div>
       </div>
-
-      {/* Right Side (Globe) */}
-      <div className="md:w-1/2 flex justify-center mt-10 md:mt-0">
+      
+      <div className="md:w-1/2 flex justify-center mt-10 md:mt-0 ">
         <GlobeDemo />
       </div>
     </div>
     <Cardcontainer/>
-    
    </>
   );
 };

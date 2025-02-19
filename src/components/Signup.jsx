@@ -21,9 +21,9 @@ const Signup = () => {
 
   return (
     <div className="flex justify-center items-center min-h-screen  bg-gray-100 dark:bg-black">
-      <div className="max-w-md w-full mx-auto  rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
+      <div className="max-w-md w-full mx-auto  rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-gradient-to-bl from-black to-gray-900">
         <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
-          Welcome to JobPortal
+          Welcome to JobSeeker
         </h2>
         <p className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
           Sign up to  explore the job endless possibilities!
@@ -42,7 +42,7 @@ const Signup = () => {
                 type="text"
                 value={formData.firstname}
                 onChange={handleChange}
-                className="w-full p-2 bg-gray-200 dark:bg-zinc-900 text-black dark:text-white border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 "
+                className="w-full p-2 bg-gradient-to-bl from-black to-gray-900 text-black dark:text-white border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 "
                 required
               />
             </div>
@@ -57,7 +57,7 @@ const Signup = () => {
                 type="text"
                 value={formData.lastname}
                 onChange={handleChange}
-                className="w-full p-2 bg-gray-200 dark:bg-zinc-900 text-black dark:text-white border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 "
+                className="w-full p-2 bg-gradient-to-bl from-black to-gray-900 text-black dark:text-white border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 "
                 required
               />
             </div>
@@ -74,7 +74,7 @@ const Signup = () => {
               type="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full p-2 bg-gray-200 dark:bg-zinc-900 text-black dark:text-white border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 "
+              className="w-full p-2 bg-gradient-to-bl from-black to-gray-900 text-black dark:text-white border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 "
               required
             />
           </div>
@@ -90,7 +90,7 @@ const Signup = () => {
               type="password"
               value={formData.password}
               onChange={handleChange}
-              className="w-full p-2 bg-gray-200 dark:bg-zinc-900 text-black dark:text-white border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 "
+              className="w-full p-2 bg-gradient-to-bl from-black to-gray-900 text-black dark:text-white border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 "
               required
             />
           </div>
@@ -101,7 +101,7 @@ const Signup = () => {
 
           <button
             type="submit"
-            className="bg-gradient-to-br relative from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-lg "
+            className="bg-gradient-to-r from-gray-900 to-gray-800  cursor-pointer block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-lg "
           >
             Sign up &rarr;
           </button>
