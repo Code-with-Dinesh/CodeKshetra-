@@ -12,31 +12,44 @@ import UserDashboard from './components/UserDashboard';
 import Footer from './components/Footer';
 import { AnimatedTooltipPreview } from './components/AnimatedTooltipPreview';
 import CandidateForm from './components/CandidateForm';
-const App = () => {
-  const location = useLocation(); // Get current route path
+import PageNotFound from './components/PageNotFound';
 
-  // Define paths where AnimatedTooltipPreview should NOT be shown
-  const hideTooltipOnRoutes = ['/recurator-dashboard', '/user-dashboard','/login',"/signup"];
-  const hideFooter = ['/login','/signup']
+const App = () => {
+  const location = useLocation();
+
+  const hideNavbarFooterTooltip = ['/login', '/signup'];
+  
+  // Check if user is on a random (non-existing) route
+  const isNotFound = ![
+    '/',
+    '/signup',
+    '/login',
+    '/recurator-dashboard',
+    '/apply-jobs'
+  ].includes(location.pathname);
+
   return (
     <div className="min-h-screen flex flex-col">
       <Provider store={store}>
-        <Navbar />
+        
+        {!hideNavbarFooterTooltip.includes(location.pathname) && !isNotFound && <Navbar />}
+
         <div className="flex-grow">
           <Routes>
             <Route path="/" element={<><Home /><MainDashboard /></>} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
             <Route path="/recurator-dashboard" element={<RecuratorDashboard />} />
-            <Route path="/user-dashboard" element={<UserDashboard />} />
-            <Route path="/apply-jobs" element={<CandidateForm/>} />
+            <Route path="/apply-jobs" element={<CandidateForm />} />
+
+          
+            <Route path="*" element={<PageNotFound />} />
           </Routes>
         </div>
-        
-        {!hideTooltipOnRoutes.includes(location.pathname) && <AnimatedTooltipPreview />}
-        
-        {!hideFooter.includes(location.pathname) && <Footer />}
-        
+
+       
+        {!hideNavbarFooterTooltip.includes(location.pathname) && !isNotFound && <AnimatedTooltipPreview />}
+        {!hideNavbarFooterTooltip.includes(location.pathname) && !isNotFound && <Footer />}
       </Provider>
     </div>
   );
