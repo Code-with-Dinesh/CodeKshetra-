@@ -16,10 +16,10 @@ const Home = () => {
           in your career on our sleek dark-themed platform.{" "}
         </p>
         <div className="flex justify-center md:justify-start space-x-3">
-          <Link to="/user-dashboard">
+          <Link to="/apply-jobs">
             {" "}
             <button className="bg-white text-black cursor-pointer border-2 border-transparent font-semibold hover:text-white hover:border-white px-6 py-3 rounded-full shadow-lg hover:bg-black transition-all duration-300">
-              Your Account
+              Apply Jobs
             </button>{" "}
           </Link>
           <Link to="/recurator-dashboard">

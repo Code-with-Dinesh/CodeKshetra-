@@ -11,7 +11,7 @@ import RecuratorDashboard from './components/RecutorDashboard';
 import UserDashboard from './components/UserDashboard';
 import Footer from './components/Footer';
 import { AnimatedTooltipPreview } from './components/AnimatedTooltipPreview';
-
+import CandidateForm from './components/CandidateForm';
 const App = () => {
   const location = useLocation(); // Get current route path
 
@@ -29,12 +29,14 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/recurator-dashboard" element={<RecuratorDashboard />} />
             <Route path="/user-dashboard" element={<UserDashboard />} />
+            <Route path="/apply-jobs" element={<CandidateForm/>} />
           </Routes>
         </div>
-
+        
         {!hideTooltipOnRoutes.includes(location.pathname) && <AnimatedTooltipPreview />}
         
         {!hideFooter.includes(location.pathname) && <Footer />}
+        
       </Provider>
     </div>
   );
