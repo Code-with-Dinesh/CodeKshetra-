@@ -10,6 +10,9 @@ const RecuratorDashboard = () => {
   const [jobDescription, setJobDescription] = useState('');
   const [jobLocation, setJobLocation] = useState('');
   const [jobSalary, setJobSalary] = useState('');
+  const [experience_required,setexperience_required] = useState('')
+  const [education_requirement,seteducation_requirement] = useState('')
+  const [skills_required,setskills_required] = useState('')
 
   useEffect(() => {
     // Fetch job postings from API
@@ -27,6 +30,9 @@ const RecuratorDashboard = () => {
       description: jobDescription,
       location: jobLocation,
       salary: jobSalary,
+      skills:skills_required,
+      experience:experience_required,
+      education:education_requirement
     };
 
     dispatch(addJobs(newJob));
@@ -37,6 +43,9 @@ const RecuratorDashboard = () => {
     setJobDescription('');
     setJobLocation('');
     setJobSalary('');
+    seteducation_requirement('')
+    setexperience_required('')
+    setskills_required('')
   };
 
   const handleDeleteJob = (id) => {
@@ -71,6 +80,7 @@ const RecuratorDashboard = () => {
                 >
                   Delete Job
                 </button>
+                <button className='bg-white cursor-pointer text-black rounded-lg mt-4 px-5 py-2 ml-2'>Info</button>
               </li>
             ))}
           </ul>
@@ -116,6 +126,36 @@ const RecuratorDashboard = () => {
                 required
                 value={jobSalary}
                 onChange={(e) => setJobSalary(e.target.value)}  // Bind the state to the input
+                className="w-full p-4 bg-gradient-to-bl from-black to-gray-900 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-400 text-white shadow-md"
+              />
+            </div>
+            <div>
+              <input
+                type="text"
+                placeholder="Education Requirement"
+                required
+                value={education_requirement}
+                onChange={(e) => seteducation_requirement(e.target.value)}  // Bind the state to the input
+                className="w-full p-4 bg-gradient-to-bl from-black to-gray-900 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-400 text-white shadow-md"
+              />
+            </div>
+            <div>
+              <input
+                type="text"
+                placeholder="Experience Required"
+                required
+                value={experience_required}
+                onChange={(e) => setexperience_required(e.target.value)}  // Bind the state to the input
+                className="w-full p-4 bg-gradient-to-bl from-black to-gray-900 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-400 text-white shadow-md"
+              />
+            </div>
+            <div>
+              <input
+                type="text"
+                placeholder="Skills Required"
+                required
+                value={skills_required}
+                onChange={(e) => setskills_required(e.target.value)}  // Bind the state to the input
                 className="w-full p-4 bg-gradient-to-bl from-black to-gray-900 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-400 text-white shadow-md"
               />
             </div>

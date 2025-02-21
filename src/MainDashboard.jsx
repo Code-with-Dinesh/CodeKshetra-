@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-
+import { Link } from 'react-router-dom';
 const MainDashboard = () => {
   const { jobs } = useSelector((state) => state.job);  // Retrieve jobs from Redux
 
@@ -20,17 +20,17 @@ const MainDashboard = () => {
             jobs.map((job) => (
               <li
                 key={job.id}
-                className="p-6 bg-gray-800 bg-opacity-70 backdrop-blur-lg rounded-lg shadow-xl hover:shadow-2xl transition duration-300 border border-gray-700 transform hover:scale-105"
+                className="p-6 bg-gray-900 bg-opacity-70 backdrop-blur-lg rounded-lg shadow-xl hover:shadow-2xl transition duration-300 border border-gray-700 transform hover:scale-105"
               >
                 <h3 className="text-2xl font-semibold text-indigo-400 mb-2">{job.title}</h3>
                 <p className="text-gray-400 mb-1">{job.description}</p>
-                <p className="text-gray-500">📍 <span className="font-medium">{job.location}</span></p>
+                <p className="text-gray-500"> <span className="font-medium">{job.location}</span></p>
                 <p className="text-gray-300">💰 <span className="font-semibold">{job.salary}</span></p>
 
                 {/* Apply Button */}
-                <button className="mt-4 px-5 py-2 bg-indigo-500 text-white rounded-lg font-semibold text-lg transition-all duration-300 hover:bg-indigo-600 hover:scale-105 active:scale-95 shadow-md">
+              <Link to="/apply-jobs"> <button className="mt-4 px-5 py-2 bg-gradient-to-bl to-gray-900 from-black cursor-pointer text-white rounded-lg font-semibold text-lg transition-all duration-300 hover:bg-indigo-600 hover:scale-105 active:scale-95 shadow-md">
                   Apply Now 🚀
-                </button>
+                </button> </Link> 
               </li>
             ))
           ) : (
