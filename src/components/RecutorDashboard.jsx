@@ -117,13 +117,13 @@ const RecuratorDashboard = () => {
                 <p className="text-gray-500">Location: {job.location}</p>
                 <p className="text-gray-300">Salary: {job.salary}</p>
                 <button
-                  onClick={() => rankcandidate(job.id)}
+                  onClick={() => fetchCandidateRanking(job.id)}
                   className="mt-4 px-5 py-2 bg-red-500 cursor-pointer text-white rounded-lg hover:bg-red-600 focus:ring-2 focus:ring-red-400 transition duration-200"
                 >
                   Rank Candidate
                 </button>
                 <button
-                  onClick={() => fetchCandidateRanking(job.id)}
+                  onClick={() => fetchJobDetails(job.id)}
                   className="bg-white cursor-pointer text-black rounded-lg mt-4 px-5 py-2 ml-2"
                 >
                   Info
