@@ -10,7 +10,7 @@ const RecuratorDashboard = () => {
   const [jobTitle, setJobTitle] = useState('');
   const [jobDescription, setJobDescription] = useState('');
   const [jobLocation, setJobLocation] = useState('');
-  const [jobSalary, setJobSalary] = useState('');
+  const [jobSalary, setJobSalary] = useState(0);
   const [experienceRequired, setExperienceRequired] = useState('');
   const [educationRequirement, setEducationRequirement] = useState('');
   const [skillsRequired, setSkillsRequired] = useState('');
