@@ -13,7 +13,7 @@ const RecuratorDashboard = () => {
   const [jobSalary, setJobSalary] = useState(0);
   const [experienceRequired, setExperienceRequired] = useState('');
   const [educationRequirement, setEducationRequirement] = useState('');
-  const [skillsRequired, setSkillsRequired] = useState('');
+  const [skillsRequired, setSkillsRequired] = useState([]);
 
   useEffect(() => {
     fetchJobs();
@@ -57,7 +57,7 @@ const RecuratorDashboard = () => {
       description: jobDescription,
       location: jobLocation,
       salary: jobSalary,
-      skills: skillsRequired,
+      skills: typeof skillsRequired === "string" ? skillsRequired.split(",").map(skill => skill.trim()) : skillsRequired,
       experience: experienceRequired,
       education: educationRequirement,
     };
@@ -65,6 +65,7 @@ const RecuratorDashboard = () => {
     try {
       const response = await axios.post('http://localhost:8080/jobs', newJob);
       dispatch(addJobs(response.data));
+      dispatch(setJobs([...jobs, response.data]));
       console.log('New job added:', response.data);
     } catch (error) {
       console.error('Error adding job:', error);
@@ -77,19 +78,22 @@ const RecuratorDashboard = () => {
     setJobSalary('');
     setEducationRequirement('');
     setExperienceRequired('');
-    setSkillsRequired('');
+    setSkillsRequired(null);
   };
 
   // Delete job
-  const handleDeleteJob = async (id) => {
-    try {
-      await axios.delete(`http://localhost:8080/jobs/${id}`);
-      dispatch(deleteJobs(id));
-      console.log('Job deleted successfully');
-    } catch (error) {
-      console.error('Error deleting job:', error);
-    }
-  };
+  // const handleDeleteJob = async (id) => {
+  //   try {
+  //     await axios.delete(`http://localhost:8080/jobs/${id}`);
+  //     dispatch(deleteJobs(id));
+  //     console.log('Job deleted successfully');
+  //   } catch (error) {
+  //     console.error('Error deleting job:', error);
+  //   }
+  // };
+  // rank candidate api
+
+  
 
   return (
     <div className="mx-auto p-10 bg-black text-white shadow-xl grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -113,13 +117,13 @@ const RecuratorDashboard = () => {
                 <p className="text-gray-500">Location: {job.location}</p>
                 <p className="text-gray-300">Salary: {job.salary}</p>
                 <button
-                  onClick={() => handleDeleteJob(job.id)}
+                  onClick={() => rankcandidate(job.id)}
                   className="mt-4 px-5 py-2 bg-red-500 cursor-pointer text-white rounded-lg hover:bg-red-600 focus:ring-2 focus:ring-red-400 transition duration-200"
                 >
-                  Delete Job
+                  Rank Candidate
                 </button>
                 <button
-                  onClick={() => fetchJobDetails(job.id)}
+                  onClick={() => fetchCandidateRanking(job.id)}
                   className="bg-white cursor-pointer text-black rounded-lg mt-4 px-5 py-2 ml-2"
                 >
                   Info
