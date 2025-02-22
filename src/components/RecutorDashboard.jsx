@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setJobs, deleteJobs, addJobs } from '../redux/JobSlice';
 import axios from 'axios';
+import CandidateRanking from './CandidateRanking';
 
 const RecuratorDashboard = () => {
   const dispatch = useDispatch();
@@ -14,6 +15,7 @@ const RecuratorDashboard = () => {
   const [experienceRequired, setExperienceRequired] = useState('');
   const [educationRequirement, setEducationRequirement] = useState('');
   const [skillsRequired, setSkillsRequired] = useState([]);
+  const [candidaterank,setcandidaterank] = useState([])
 
   useEffect(() => {
     fetchJobs();
@@ -34,6 +36,7 @@ const RecuratorDashboard = () => {
     try {
       const response = await axios.get(`http://localhost:8080/jobs/${id}/rank-candidates`);
       console.log('Candidate Ranking:', response.data);
+      setcandidaterank(response.data)
     } catch (error) {
       console.error('Error fetching ranking:', error);
     }
@@ -200,7 +203,7 @@ const RecuratorDashboard = () => {
       </div>
 
       {/* Right Section - Recruiter Info */}
-      <div className="bg-gradient-to-bl from-black to-gray-900 backdrop-blur-lg p-6 rounded-xl shadow-lg border border-gray-700">
+      {/* <div className="bg-gradient-to-bl from-black to-gray-900 backdrop-blur-lg p-6 rounded-xl shadow-lg border border-gray-700">
         <h2 className="text-2xl font-semibold text-gray-300 mb-4">Recruiter Info</h2>
         <p className="text-gray-400 mb-4">
           Manage job listings and add new positions for your company.
@@ -208,7 +211,25 @@ const RecuratorDashboard = () => {
         <p className="text-gray-400">
           Keep job posts updated to attract the best candidates!
         </p>
-      </div>
+      </div> */}
+      {
+        candidaterank.map((ele,index)=>{
+          <div>
+            <li>{ele.id}</li>
+            <li>{ele.title}</li>
+            <li>{ele.location}</li>
+            <li>{ele.expectedSalary}</li>
+            <li>{ele.education}</li>
+            <li>{ele.experience}</li>
+
+            <ul className="flex flex-wrap gap-2 mt-2">
+                  {skills.map((skill, i) => (
+                    <li key={i} className="bg-purple-600 text-white px-3 py-1 rounded-lg text-sm">{skill}</li>
+                  ))}
+                </ul>
+            </div>
+        })
+      }
     </div>
   );
 };
