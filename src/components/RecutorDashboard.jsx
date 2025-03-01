@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setJobs, deleteJobs, addJobs } from '../redux/JobSlice';
+import { setJobs, addJobs } from '../redux/JobSlice';
 import axios from 'axios';
-import CandidateRanking from './CandidateRanking';
+
 
 const RecuratorDashboard = () => {
   const dispatch = useDispatch();
@@ -19,6 +19,7 @@ const RecuratorDashboard = () => {
 
   useEffect(() => {
     fetchJobs();
+    handleAddJob();
   }, [dispatch]);
 
   // Fetch all jobs
@@ -42,7 +43,7 @@ const RecuratorDashboard = () => {
     }
   };
 
-  // Fetch job details by ID
+  // Fetch job details by ID  
   const fetchJobDetails = async (id) => {
     try {
       const response = await axios.get(`http://localhost:8080/jobs/${id}`);
@@ -84,17 +85,7 @@ const RecuratorDashboard = () => {
     setSkillsRequired(null);
   };
 
-  // Delete job
-  // const handleDeleteJob = async (id) => {
-  //   try {
-  //     await axios.delete(`http://localhost:8080/jobs/${id}`);
-  //     dispatch(deleteJobs(id));
-  //     console.log('Job deleted successfully');
-  //   } catch (error) {
-  //     console.error('Error deleting job:', error);
-  //   }
-  // };
-  // rank candidate api
+
 
   
 
@@ -201,17 +192,6 @@ const RecuratorDashboard = () => {
           </form>
         </div>
       </div>
-
-      {/* Right Section - Recruiter Info */}
-      {/* <div className="bg-gradient-to-bl from-black to-gray-900 backdrop-blur-lg p-6 rounded-xl shadow-lg border border-gray-700">
-        <h2 className="text-2xl font-semibold text-gray-300 mb-4">Recruiter Info</h2>
-        <p className="text-gray-400 mb-4">
-          Manage job listings and add new positions for your company.
-        </p>
-        <p className="text-gray-400">
-          Keep job posts updated to attract the best candidates!
-        </p>
-      </div> */}
       {
         candidaterank.map((ele,index)=>{
           <div>
@@ -223,7 +203,7 @@ const RecuratorDashboard = () => {
             <li>{ele.experience}</li>
 
             <ul className="flex flex-wrap gap-2 mt-2">
-                  {skills.map((skill, i) => (
+                  {candidaterank.skills.skills.map((skill, i) => (
                     <li key={i} className="bg-purple-600 text-white px-3 py-1 rounded-lg text-sm">{skill}</li>
                   ))}
                 </ul>
